@@ -10130,6 +10130,8 @@ function _typeof(obj) {
   },
   methods: {
     loadData: function loadData() {
+      var max = Math.ceil(this.currentx * this.maxItemsx);
+      var min = max - this.maxItemsx;
       if (this.sst) {
         this.datax = this.pagination
           ? this.getItems(0, this.maxItemsx)

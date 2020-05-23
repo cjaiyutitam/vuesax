@@ -9,7 +9,7 @@
         v-if="search"
         class="con-input-search vs-table--search">
         <input
-          v-model="searchx"
+          v-model.lazy="searchx"
           class="input-search vs-table--search-input"
           type="text">
         <vs-icon icon="search"></vs-icon>
