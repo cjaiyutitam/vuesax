@@ -10130,13 +10130,18 @@ function _typeof(obj) {
   },
   methods: {
     loadData: function loadData() {
-      var max = Math.ceil(this.currentx * this.maxItemsx);
-      var min = max - this.maxItemsx;
-
-      if (!this.searchx || this.sst) {
-        this.datax = this.pagination ? this.getItems(min, max) : this.sortItems(this.data) || [];
+      if (this.sst) {
+        this.datax = this.pagination
+          ? this.getItems(0, this.maxItemsx)
+          : this.sortItems(this.data) || [];
+      } else if (!this.searchx) {
+        this.datax = this.pagination
+          ? this.getItems(min, max)
+          : this.sortItems(this.data) || [];
       } else {
-        this.datax = this.pagination ? this.getItemsSearch(min, max) : this.getItemsSearch(min, max) || [];
+        this.datax = this.pagination
+          ? this.getItemsSearch(min, max)
+          : this.getItemsSearch(min, max) || [];
       }
     },
     getItems: function getItems(min, max) {
